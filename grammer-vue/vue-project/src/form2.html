@@ -1,0 +1,39 @@
+<form id="loginForm">
+    <input type="text" id="id" placeholder="아이디"/>
+    <input type="password" id="pw" placeholder="비밀번호"/>
+    <button type="submit">로그인</button>
+  </form>
+  
+  <script>
+    document.getElementById("loginForm").addEventListener('submit', function(event){
+      event.preventDefault(); // 폼 제출 시 페이지 리로드 방지
+      
+      const id = document.getElementById("id").value;
+      const pw = document.getElementById("pw").value;
+      
+      // AJAX 요청 생성
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/login_process', true); // 경로 수정
+      
+      // 응답 처리
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) { // 응답이 성공적일 때
+            const response = xhr.responseText;
+            console.log(response); // 응답 데이터를 콘솔에 출력
+          } else {
+            console.error('Request failed with status: ' + xhr.status); // 에러 출력
+          }
+        }
+      };
+      
+      // 전송할 데이터 준비
+      const formData = new FormData(); // 대소문자 수정
+      formData.append('id', id);
+      formData.append('password', pw);
+      
+      // 데이터 전송
+      xhr.send(formData);
+    });
+  </script>
+  
