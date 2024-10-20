@@ -32,7 +32,7 @@ setTimeout(()=>{
   console.log('예제4',refDoubleCount.value);
 
   reactiveCount.count = 10;
-  console.log('예제4',reactiveDoubleCount.value);//40 출력됨
+  console.log('예제4',reactiveDoubleCount.value);//20 출력됨
 },3000)
 </script>
 <template>

@@ -14,5 +14,5 @@ setTimeout(
 
 </script>
 <template>
-  <RefEx2Child ref="componentRef" />
+  <RefEx2Child ref="componentRef" /> 
 </template>
