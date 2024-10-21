@@ -54,7 +54,11 @@ import { useRoute } from 'vue-router';
 
     onMounted(updateUrl);
 
-    watch(() => route.params.noPath, updateUrl, { immediate: true });
+    watch(
+      () => route.params.noPath, //route.params.noPath의 변화를 감시
+      updateUrl, //변화가 있으면 updateUrl메소드 실행
+      { immediate: true }//
+      );
 </script>
 
 <template>
